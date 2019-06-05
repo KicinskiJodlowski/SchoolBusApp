@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">School Bus App</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="scan_desc_text">Press Scan button in order to scan a barcode or QR code&#8230;</string>
+    <string name="scan_text">Scan</string>
+    <string name="scan_result">Scan result</string>
+    <string name="master_token">mtlNzTVmXP4IBSba3z4XgcpxibboPvaF</string>
+    <string name="google_maps_key">AIzaSyDmRm-T24g_CWUQRBLRu9Cbfvgn8TNlzYU</string>
+
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

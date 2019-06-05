@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/add_event"
+            android:icon="@drawable/ic_add_event"
+            android:title="Dodaj wydarzenie" />
+        <item
+            android:id="@+id/my_events"
+            android:icon="@drawable/ic_my_events"
+            android:title="Moje wydarzenia" />
+        <item
+            android:id="@+id/settings"
+            android:icon="@drawable/ic_settings"
+            android:title="Ustawienia" />
+
+    </group>
+
+    <item android:title="Współdzielenie">
+        <menu>
+
+            <item
+                android:id="@+id/join_event"
+                android:icon="@drawable/ic_join_event"
+                android:title="Dołącz do wydarzenia" />
+        </menu>
+    </item>
+    <item
+        android:id="@+id/logOut_event"
+        android:icon="@drawable/ic_logout"
+        android:title="Wyloguj" />
+</menu>
