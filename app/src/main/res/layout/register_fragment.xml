@@ -7,7 +7,7 @@
     android:focusable="true"
     android:focusableInTouchMode="true"
     android:focusedByDefault="true"
-    tools:context=".fragment.LoginFragment">
+    tools:context="com.example.SchoolBusApp.fragment.LoginFragment">
 
     <LinearLayout
         android:layout_width="366dp"

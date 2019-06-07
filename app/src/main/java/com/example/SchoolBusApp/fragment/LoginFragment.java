@@ -1,6 +1,7 @@
 package com.example.SchoolBusApp.fragment;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -12,11 +13,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.SchoolBusApp.R;
 import com.example.SchoolBusApp.RetrofitClient;
 import com.example.SchoolBusApp.SharedPreferenceManager;
 import com.example.SchoolBusApp.activity.MainActivity;
 import com.example.SchoolBusApp.model.UserJSONModel;
-import com.example.SchoolBusApp.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -29,6 +30,7 @@ import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class LoginFragment extends Fragment {
 
@@ -37,13 +39,10 @@ public class LoginFragment extends Fragment {
     public static String userID;
     private Intent activityIntent;
 
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
         View loginView = inflater.inflate(R.layout.login_fragment, container, false);
-
         return loginView;
     }
 
@@ -92,6 +91,20 @@ public class LoginFragment extends Fragment {
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
+                        Call<ResponseBody> call2 = RetrofitClient.getInstance().getApi().user_role_check(SharedPreferenceManager.read(SharedPreferenceManager.TOKEN, ""), "1");
+                        call2.enqueue(new Callback<ResponseBody>() {
+                            @Override
+                            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response2) {
+                                if (response2.code() == 200)
+                                    SharedPreferenceManager.write(SharedPreferenceManager.USER_TYPE, "admin");
+                                else if (response2.code() == 401)
+                                    SharedPreferenceManager.write(SharedPreferenceManager.USER_TYPE, "user");
+                                //Toast.makeText(getActivity(), SharedPreferenceManager.read(SharedPreferenceManager.USER_TYPE, ""), Toast.LENGTH_SHORT).show();
+                            }
+                            @Override
+                            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                            }
+                        });
                     }
                 } else {
                     Toast.makeText(getActivity(), "Nie udało się zalogować.", Toast.LENGTH_SHORT).show();

@@ -26,9 +26,8 @@ import android.widget.ImageView;
 
 import android.widget.TimePicker;
 import android.widget.Toast;
-
-import com.example.SchoolBusApp.RetrofitClient;
 import com.example.SchoolBusApp.R;
+import com.example.SchoolBusApp.RetrofitClient;
 
 import org.json.JSONObject;
 
@@ -211,7 +210,7 @@ public class AddPassengerFragment extends Fragment implements DatePickerDialog.O
 
                 if(response.code() == 201) {
                     Toast.makeText(getActivity(), "Dodano nowe wydarzenie", Toast.LENGTH_SHORT).show();
-                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new MainScreenFragment()).commit();
+                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new MainScreenFragment_user()).commit();
                 }
                 else if(response.code() == 401) {
                     Toast.makeText(getActivity(), "Brak autoryzacji", Toast.LENGTH_SHORT).show();

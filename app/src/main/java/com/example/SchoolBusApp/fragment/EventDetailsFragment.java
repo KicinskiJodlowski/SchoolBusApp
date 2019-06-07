@@ -24,13 +24,13 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import com.example.SchoolBusApp.RetrofitClient;
-import com.example.SchoolBusApp.SharedPreferenceManager;
 import com.example.SchoolBusApp.adapter.GuestRecordAdapter;
 import com.example.SchoolBusApp.model.EventModel;
 import com.example.SchoolBusApp.model.GuestModel;
 import com.example.SchoolBusApp.model.InvitedGuest;
 import com.example.SchoolBusApp.R;
+import com.example.SchoolBusApp.RetrofitClient;
+import com.example.SchoolBusApp.SharedPreferenceManager;
 
 import org.json.JSONObject;
 
@@ -183,7 +183,7 @@ public class EventDetailsFragment extends Fragment implements DatePickerDialog.O
 
     private void getEvent() {
 
-        Call<EventModel> call = RetrofitClient.getInstance().getApi().getEvent(eventPart.getEventId(), SharedPreferenceManager.read(SharedPreferenceManager.TOKEN,""));
+        Call<EventModel> call = RetrofitClient.getInstance().getApi().getEvent(eventPart.getEventId(),SharedPreferenceManager.read(SharedPreferenceManager.TOKEN,""));
 
         call.enqueue(new Callback<EventModel>() {
             @Override
@@ -341,7 +341,7 @@ public class EventDetailsFragment extends Fragment implements DatePickerDialog.O
 
                 if(response.code() == 204) {
                     Toast.makeText(getActivity(),"Zmiany zostały zapisane",Toast.LENGTH_SHORT).show();
-                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new MainScreenFragment()).commit();
+                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new MainScreenFragment_user()).commit();
                 }
                 else if(response.code() == 401) {
                     Toast.makeText(getActivity(), "Brak autoryzacji", Toast.LENGTH_SHORT).show();

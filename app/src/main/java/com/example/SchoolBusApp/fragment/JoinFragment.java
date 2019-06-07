@@ -11,10 +11,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.SchoolBusApp.R;
 import com.example.SchoolBusApp.RetrofitClient;
 import com.example.SchoolBusApp.SharedPreferenceManager;
 import com.example.SchoolBusApp.model.QrCodeModel;
-import com.example.SchoolBusApp.R;
 
 import java.io.IOException;
 
@@ -72,7 +72,7 @@ public class JoinFragment extends Fragment {
                         Toast.makeText(getActivity(),"Nie udało się dołączyć do wydarzenia", Toast.LENGTH_LONG).show();
                     }
                 });
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new MainScreenFragment()).commit();
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new MainScreenFragment_user()).commit();
             }
         });
 

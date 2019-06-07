@@ -2,24 +2,24 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="176dp"
-    android:background="#231F20"
+    android:background="#551FF7"
     android:gravity="bottom"
     android:orientation="vertical"
     android:padding="16dp"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <ImageView
-        android:layout_width="200dp"
-        android:layout_height="102dp"
-        android:src="@drawable/eventer" />
+        android:layout_width="wrap_content"
+        android:layout_height="105dp"
+        android:layout_marginLeft="-10dp"
+        android:src="@drawable/ic_school_bus_logo" />
 
     <TextView
         android:id="@+id/welcomeMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="12dp"
-        android:text="Eventer"
+        android:text="SchoolBus"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="#FAF8F8" />
+        android:textColor="#f7de1f" />
 
 </LinearLayout>
