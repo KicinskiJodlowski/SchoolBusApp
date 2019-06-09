@@ -11,10 +11,10 @@
 
         <fragment
             android:id="@+id/mapView"
-            tools:context=".MapsActivity"
             android:name="com.google.android.gms.maps.SupportMapFragment"
-            android:layout_width="399dp"
-            android:layout_height="409dp" />
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".MapsActivity" />
 
         <!--<com.google.android.gms.maps.MapView-->
         <!--android:id="@+id/mapView"-->
@@ -25,12 +25,13 @@
         <!--class="com.google.android.gms.maps.SupportMapFragment"-->
         <!--/>-->
     </FrameLayout>
-
-    <ListView
-        android:id="@+id/listViewEvents"
+    <Button
+        android:id="@+id/gps_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:clickable="true"
-        android:focusable="true" />
+        android:backgroundTint="@android:color/holo_green_dark"
+        android:layout_marginTop="12dp"
+        android:text="Dodaj swoją pozycję" />
+
 
 </LinearLayout>

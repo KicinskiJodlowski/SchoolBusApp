@@ -101,6 +101,7 @@ public class LoginFragment extends Fragment {
                                     SharedPreferenceManager.write(SharedPreferenceManager.USER_TYPE, "user");
                                 //Toast.makeText(getActivity(), SharedPreferenceManager.read(SharedPreferenceManager.USER_TYPE, ""), Toast.LENGTH_SHORT).show();
                             }
+
                             @Override
                             public void onFailure(Call<ResponseBody> call, Throwable t) {
                             }

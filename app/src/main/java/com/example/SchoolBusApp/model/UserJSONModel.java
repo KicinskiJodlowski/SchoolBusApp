@@ -13,14 +13,13 @@ public class UserJSONModel {
     private String picture;
     private String email;
     private String createdAt;
+    private String latitude;
+    private String longitude;
 
 
-    public UserJSONModel(String id, String name, String picture, String email, String createdAt) {
+    public UserJSONModel(String id, String email) {
         this.id = id;
-        this.name = name;
-        this.picture = picture;
         this.email = email;
-        this.createdAt = createdAt;
     }
 
     public UserJSONModel(JSONObject jsonObject) throws JSONException {
@@ -29,6 +28,9 @@ public class UserJSONModel {
         this.picture = jsonObject.getString("picture");
         this.email = jsonObject.getString("email");
         this.createdAt = jsonObject.getString("createdAt");
+        this.latitude = jsonObject.getString("latitude");
+        this.longitude = jsonObject.getString("longitude");
+
     }
 
 }
@@ -37,3 +39,5 @@ public class UserJSONModel {
 //        "picture": "https://gravatar.com/avatar/3a96665d49bb533032279f1f076397d5?d=identicon",
 //        "email": "kamil.kicinski@student.wat.edu.pl",
 //        "createdAt": "2019-06-03T22:14:20.906Z"
+//        "latitude": "15.8",
+//        "longitude": "10"

@@ -7,6 +7,7 @@ import com.example.SchoolBusApp.model.QrCodeModel;
 
 import java.util.ArrayList;
 
+import lombok.Getter;
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -24,7 +25,7 @@ import retrofit2.http.Query;
 
 public interface UserAPIClient {
 
-//    @Headers({
+    //    @Headers({
 //            "Content-Type: application/x-www-form-urlencoded",
 //            "accept-encoding: gzip, deflate",
 //           // "access_token: mtlNzTVmXP4IBSba3z4XgcpxibboPvaF",
@@ -32,16 +33,24 @@ public interface UserAPIClient {
 //    })
     @FormUrlEncoded
     @POST("/auth")
-    Call<ResponseBody> login(@Header("Authorization") String credentials, @Field("access_token") String authKey );
+    Call<ResponseBody> login(@Header("Authorization") String credentials, @Field("access_token") String authKey);
     //encoded(@Path("name") String name);
 
     @FormUrlEncoded
     @POST("/users")
-    Call<ResponseBody> register(@Field("access_token")String authKey, @Field("email")String email, @Field("password")String password );
+    Call<ResponseBody> register(@Field("access_token") String authKey, @Field("email") String email, @Field("password") String password);
 
-
+    //    tak naprawde sprawdza uprawnienia
     @GET("/passengers")
     Call<ResponseBody> user_role_check(@Query("access_token") String authKey, @Query("limit") String limit);
+
+    @FormUrlEncoded
+    @PUT("/users/{id}")
+    Call<ResponseBody> updateLocation(@Path("id") String id, @Field("access_token") String authKey, @Field("latitude") String latitude, @Field("longitude") String longitude);
+
+    @FormUrlEncoded
+    @GET("/users")
+    Call<ResponseBody> getAllUsers(@Query("access_token") String authKey);
 
 
     //@POST("/api/AppUser/Register")
@@ -64,7 +73,7 @@ public interface UserAPIClient {
             @Header("Authorization") String authKey
     );
 
-    @Headers( { "Content-Type: application/json" } )
+    @Headers({"Content-Type: application/json"})
     @PUT("api/Event/{id}")
     Call<ResponseBody> updateEvent(
             @Path("id") int id,
@@ -72,34 +81,34 @@ public interface UserAPIClient {
             @Body RequestBody params
     );
 
-    @Headers( { "Content-Type: application/json" } )
+    @Headers({"Content-Type: application/json"})
     @POST("api/Event")
     Call<ResponseBody> addEvent(
             @Header("Authorization") String authKey,
             @Body RequestBody params
     );
 
-    @Headers( { "Content-Type: application/json" } )
+    @Headers({"Content-Type: application/json"})
     @POST("api/Event/inviteQR")
     Call<String> addToEvent(
             @Header("Authorization") String authKey,
             @Body QrCodeModel qrCodeModel
-            );
+    );
 
     //Notyfikacje
-    @GET ("api/notifications/register")
+    @GET("api/notifications/register")
     Call<String> getRegisterID(
             @Header("Authorization") String authKey
-            );
+    );
 
-    @PUT ("api/notifications/enable/{registerID}")
+    @PUT("api/notifications/enable/{registerID}")
     Call<ResponseBody> notifyRegister(
             @Path("registerID") String registerID,
             @Header("Authorization") String authKey,
             @Body NotifyRegisterModel notifyRegistermodel
     );
 
-    @DELETE ("api/notifications/unregister/{registerID}")
+    @DELETE("api/notifications/unregister/{registerID}")
     Call<ResponseBody> notifyUnregister(
             @Path("registerID") String registerID,
             @Header("Authorization") String authKey
