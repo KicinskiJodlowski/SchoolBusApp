@@ -42,7 +42,7 @@ public class MainScreenFragment_admin extends Fragment implements OnMapReadyCall
 
     SupportMapFragment supportMapFragment;
     ListView listViewBusStop;
-    public static ArrayList<PassengerModel> listBusStop;
+    public static ArrayList<PassengerModel> listBusStop = new ArrayList<>();
     private static final String TAG = "MainScreenFragment_user";
     private static final String FINE_LOCATION = Manifest.permission.ACCESS_FINE_LOCATION;
     private static final String COURSE_LOCATION = Manifest.permission.ACCESS_COARSE_LOCATION;
@@ -86,7 +86,7 @@ public class MainScreenFragment_admin extends Fragment implements OnMapReadyCall
 
     private PassengerArray getAllPasengers() {
         PassengerArray lista = new PassengerArray();
-        ArrayList<PassengerModel> listaB = new ArrayList<>();
+        ArrayList<PassengerModel> listaB;
         listaB = lista.getLista();
         showPassengers(listaB);
         return lista;
@@ -143,6 +143,8 @@ public class MainScreenFragment_admin extends Fragment implements OnMapReadyCall
     private void showPassengers(ArrayList<PassengerModel> list) {
 
         listBusStop.addAll(list);
+
+
 
         PassengerAdapter adapter = new PassengerAdapter(getActivity(), R.layout.passenger_record, listBusStop);
         listViewBusStop.setAdapter(adapter);

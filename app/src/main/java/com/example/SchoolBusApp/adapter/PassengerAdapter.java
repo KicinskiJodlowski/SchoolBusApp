@@ -37,12 +37,10 @@ public class PassengerAdapter extends ArrayAdapter<PassengerModel> {
         convertView = inflater.inflate(res, parent, false);
 
         TextView passengerEmail = convertView.findViewById(R.id.textPassengerEmail);
-        TextView passengerLatitude = convertView.findViewById(R.id.textPassengerLatitude);
-        TextView passengerLongitude = convertView.findViewById(R.id.textPassengerLongitude);
+        TextView passengerLatLon = convertView.findViewById(R.id.textPassengerLatLon);
 
         passengerEmail.setText(title);
-        passengerLatitude.setText(latitude);
-        passengerLongitude.setText(longitude);
+        passengerLatLon.setText("Szerokość: "+latitude+ "   Dlugosc: "+longitude);
 
         return convertView;
     }
