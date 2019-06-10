@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -47,9 +48,11 @@ public class MainScreenFragment_admin extends Fragment implements OnMapReadyCall
     private static final String FINE_LOCATION = Manifest.permission.ACCESS_FINE_LOCATION;
     private static final String COURSE_LOCATION = Manifest.permission.ACCESS_COARSE_LOCATION;
     private FusedLocationProviderClient fusedLocationProviderClient;
+    PassengerArray passengerArray = new PassengerArray();
     //vars
     private Boolean mLocationPermissionsGranted = false;
     private GoogleMap map;
+    private Button busStopAssignBtn;
 
     @Nullable
     @Override
@@ -62,16 +65,21 @@ public class MainScreenFragment_admin extends Fragment implements OnMapReadyCall
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         listViewBusStop = getActivity().findViewById(R.id.listViewBusStop);
+        busStopAssignBtn = view.findViewById(R.id.busStopAssignBtn);
+        busStopAssignBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getBusStopList(passengerArray);
+            }
+        });
         getLocationPermission();
 //        TODO: umieścić listę userów/przystanków(z liczbą userów)
 
-        getBusRoute(getBusStopList(getAllPasengers()));
+        passengerArray = getAllPasengers();
 
 
 //        TODO: na mapę wrzucić trasę między przystankami
 
-//        listEvents = new ArrayList<>();
-//        getEvents();
     }
 
     private ArrayList<BusStopModel> getBusRoute(ArrayList<BusStopModel> busStopList) {
@@ -81,64 +89,20 @@ public class MainScreenFragment_admin extends Fragment implements OnMapReadyCall
 
     private ArrayList<BusStopModel> getBusStopList(PassengerArray allPasengers) {
 //        @TODO: algorytm k-means
+
         return null;
     }
 
     private PassengerArray getAllPasengers() {
         PassengerArray lista = new PassengerArray();
-        ArrayList<PassengerModel> listaB;
-        listaB = lista.getLista();
-        showPassengers(listaB);
+        showPassengers(lista.getLista());
+
+//        ArrayList<MarkerData> markersArray = new ArrayList<MarkerData>();
+
+        busStopAssignBtn.setVisibility(View.VISIBLE);
         return lista;
     }
 
-
-//    private void getEvents() {
-//
-//        Call<ArrayList<EventModel>> call = RetrofitClient.getInstance().getApi().getEvents(SharedPreferenceManager.read(SharedPreferenceManager.TOKEN, ""));
-//        call.enqueue(new Callback<ArrayList<EventModel>>() {
-//            @Override
-//            public void onResponse(Call<ArrayList<EventModel>> call, Response<ArrayList<EventModel>> response) {
-//
-//                Log.d("Response Code ", Integer.toString(response.code()));
-//                if (response.code() == 200) {
-//                    showEvents(response);
-//                } else {
-//                    Toast.makeText(getActivity(), "Wystąpił błąd! Nie udało się pobrać wydarzeń.", Toast.LENGTH_SHORT).show();
-//                    if (response.code() == 401) {
-//                        SharedPreferences sharedPreferences;
-//                        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(initialActivity.getApplicationContext());
-//                        Call<ResponseBody> logout = new RetrofitClient().getApi().notifyUnregister(sharedPreferences.getString("registrationID", ""),
-//                                SharedPreferenceManager.read(SharedPreferenceManager.TOKEN, ""));
-//                        logout.enqueue(new Callback<ResponseBody>() {
-//                            @Override
-//                            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-//                                if (response.code() == 200) {
-//                                    //SharedPreferenceManager.remove(SharedPreferenceManager.RegisterID);
-//                                    Log.d("unRegID", "Wyrejestrowanie z usługi udane");
-//                                } else
-//                                    Log.d("unRegID", "Wyrejestrowanie z usługi nie powiodło się");
-//                            }
-//
-//                            @Override
-//                            public void onFailure(Call<ResponseBody> call, Throwable t) {
-//                                Log.d("unRegID", "Failure request");
-//                            }
-//                        });
-//                        SharedPreferenceManager.remove(SharedPreferenceManager.TOKEN);
-//                        Intent intent = new Intent(getActivity(), LoginActivity.class);
-//                        startActivity(intent);
-//                    }
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<ArrayList<EventModel>> call, Throwable t) {
-//                Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//
-//    }
 
     private void showPassengers(ArrayList<PassengerModel> list) {
 
@@ -148,27 +112,7 @@ public class MainScreenFragment_admin extends Fragment implements OnMapReadyCall
 
         PassengerAdapter adapter = new PassengerAdapter(getActivity(), R.layout.passenger_record, listBusStop);
         listViewBusStop.setAdapter(adapter);
-//        listEvents.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-//                showEventDetails(position);
-//            }
-//        });
     }
-
-//    private void showEventDetails(int position) {
-//        FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-//        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-//        EventDetailsFragment detailsFragment = new EventDetailsFragment();
-//
-//        Bundle arg = new Bundle();
-//        arg.putSerializable("event", listEvents.get(position));
-//        detailsFragment.setArguments(arg);
-//
-//        ft.replace(R.id.fragment_container, detailsFragment);
-//        ft.addToBackStack(null);
-//        ft.commit();
-//    }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {

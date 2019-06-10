@@ -26,11 +26,20 @@
         <!--/>-->
     </FrameLayout>
 
+    <Button
+        android:id="@+id/busStopAssignBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Wyznacz przystanki"
+        android:visibility="gone" />
+
     <ListView
         android:id="@+id/listViewBusStop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
-        android:focusable="true" />
+        android:focusable="true" >
+
+    </ListView>
 
 </LinearLayout>

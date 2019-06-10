@@ -13,8 +13,6 @@ import android.view.MenuItem;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.example.SchoolBusApp.fragment.AddPassengerFragment;
-import com.example.SchoolBusApp.fragment.JoinFragment;
 import com.example.SchoolBusApp.fragment.MainScreenFragment_admin;
 import com.example.SchoolBusApp.fragment.MainScreenFragment_user;
 import com.example.SchoolBusApp.fragment.SettingsFragment;
@@ -76,18 +74,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()) {
-            case R.id.add_event:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AddPassengerFragment()).commit();
-                break;
+
             case R.id.my_events:
                 if (SharedPreferenceManager.read(SharedPreferenceManager.USER_TYPE, "").equals("admin"))
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new MainScreenFragment_admin()).commit();
                 else
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new MainScreenFragment_user()).commit();
                 break;
-            case R.id.join_event:
-//                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new JoinFragment()).addToBackStack(null).commit();
-                break;
+
             case R.id.settings:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SettingsFragment()).commit();
                 break;

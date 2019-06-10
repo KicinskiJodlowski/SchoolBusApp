@@ -30,33 +30,34 @@ public class PassengerArray {
 //        });
 
         lista = new ArrayList<>();
-        lista.add(new PassengerModel(new UserJSONModel("5cfba96fc5db3c001715eb82", "zwykly.user@student.wat.edu.pl"), 52.2322678, 20.9999925));
-        lista.add(new PassengerModel(new UserJSONModel("5cf6fc0bf3c6ad0017898a49", "zwykly.user2@student.wat.edu.pl"), 52.2322678, 20.9999925));
-        lista.add(new PassengerModel(new UserJSONModel("5cf72de4bc1b9200176a367c", "zwykly.user3@student.wat.edu.pl"), 52.2322678, 20.9999925));
-        lista.add(new PassengerModel(new UserJSONModel("5cf72deabc1b9200176a367d", "zwykly.user4@student.wat.edu.pl"), 52.2322678, 20.9999925));
-        lista.add(new PassengerModel(new UserJSONModel("5cf72dedbc1b9200176a367e", "zwykly.user5@student.wat.edu.pl"), 52.2322678, 20.9999925));
-        lista.add(new PassengerModel(new UserJSONModel("5cf72df0bc1b9200176a367f", "zwykly.user6@student.wat.edu.pl"), 52.2322678, 20.9999925));
-        lista.add(new PassengerModel(new UserJSONModel("5cf72df4bc1b9200176a3680", "zwykly.user7@student.wat.edu.pl"), 52.2322678, 20.9999925));
-        lista.add(new PassengerModel(new UserJSONModel("5cf72df7bc1b9200176a3681", "zwykly.user8@student.wat.edu.pl"), 52.2322678, 20.9999925));
-        lista.add(new PassengerModel(new UserJSONModel("5cf72dfcbc1b9200176a3682", "zwykly.user9@student.wat.edu.pl"), 52.2322678, 20.9999925));
-        lista.add(new PassengerModel(new UserJSONModel("5cf72e02bc1b9200176a3683", "zwykly.user10@student.wat.edu.pl"), 52.2322678, 20.9999925));
-        lista.add(new PassengerModel(new UserJSONModel("5cf72e06bc1b9200176a3684", "zwykly.user11@student.wat.edu.pl"), 52.2322678, 20.9999925));
-        lista.add(new PassengerModel(new UserJSONModel("5cf72e09bc1b9200176a3685", "zwykly.user12@student.wat.edu.pl"), 52.2322678, 20.9999925));
-        lista.add(new PassengerModel(new UserJSONModel("5cf72e0ebc1b9200176a3686", "zwykly.user13@student.wat.edu.pl"), 52.2322678, 20.9999925));
-        lista.add(new PassengerModel(new UserJSONModel("5cf72e11bc1b9200176a3687", "zwykly.user14@student.wat.edu.pl"), 52.2322678, 20.9999925));
-        lista.add(new PassengerModel(new UserJSONModel("5cf72e17bc1b9200176a3688", "zwykly.user15@student.wat.edu.pl"), 52.2322678, 20.9999925));
-        lista.add(new PassengerModel(new UserJSONModel("5cf72e1cbc1b9200176a3689", "zwykly.user16@student.wat.edu.pl"), 52.2322678, 20.9999925));
-        lista.add(new PassengerModel(new UserJSONModel("5cf72e20bc1b9200176a368a", "zwykly.user17@student.wat.edu.pl"), 52.2322678, 20.9999925));
-        lista.add(new PassengerModel(new UserJSONModel("5cf72e23bc1b9200176a368b", "zwykly.user18@student.wat.edu.pl"), 52.2322678, 20.9999925));
-        lista.add(new PassengerModel(new UserJSONModel("5cf72e27bc1b9200176a368c", "zwykly.user19@student.wat.edu.pl"), 52.2322678, 20.9999925));
-        lista.add(new PassengerModel(new UserJSONModel("5cf72e2dbc1b9200176a368d", "zwykly.user20@student.wat.edu.pl"), 52.2322678, 20.9999925));
-        lista.add(new PassengerModel(new UserJSONModel("5cf72e31bc1b9200176a368e", "zwykly.user21@student.wat.edu.pl"), 52.2322678, 20.9999925));
-        lista.add(new PassengerModel(new UserJSONModel("5cf72e35bc1b9200176a368f", "zwykly.user22@student.wat.edu.pl"), 52.2322678, 20.9999925));
-        lista.add(new PassengerModel(new UserJSONModel("5cf72e38bc1b9200176a3690", "zwykly.user23@student.wat.edu.pl"), 52.2322678, 20.9999925));
-        lista.add(new PassengerModel(new UserJSONModel("5cf72e3cbc1b9200176a3691", "zwykly.user24@student.wat.edu.pl"), 52.2322678, 20.9999925));
-        lista.add(new PassengerModel(new UserJSONModel("5cf72e3fbc1b9200176a3692", "zwykly.user25@student.wat.edu.pl"), 52.2322678, 20.9999925));
+        lista.add(new PassengerModel(new UserJSONModel("5cfba96fc5db3c001715eb82", "zwykly.user@student.wat.edu.pl"), 52.250458, 20.889897));
+        lista.add(new PassengerModel(new UserJSONModel("5cf6fc0bf3c6ad0017898a49", "zwykly.user2@student.wat.edu.pl"), 52.251962, 20.894242));
+        lista.add(new PassengerModel(new UserJSONModel("5cf72de4bc1b9200176a367c", "zwykly.user3@student.wat.edu.pl"), 52.254070, 20.891517));
+        lista.add(new PassengerModel(new UserJSONModel("5cf72deabc1b9200176a367d", "zwykly.user4@student.wat.edu.pl"), 52.253617, 20.898265));
+        lista.add(new PassengerModel(new UserJSONModel("5cf72dedbc1b9200176a367e", "zwykly.user5@student.wat.edu.pl"), 52.258011, 20.894853));
+        lista.add(new PassengerModel(new UserJSONModel("5cf72df0bc1b9200176a367f", "zwykly.user6@student.wat.edu.pl"),  52.265959, 20.899563));
+        lista.add(new PassengerModel(new UserJSONModel("5cf72df4bc1b9200176a3680", "zwykly.user7@student.wat.edu.pl"), 52.264790, 20.901601));
+        lista.add(new PassengerModel(new UserJSONModel("5cf72df7bc1b9200176a3681", "zwykly.user8@student.wat.edu.pl"), 52.265020, 20.907620));
+        lista.add(new PassengerModel(new UserJSONModel("5cf72dfcbc1b9200176a3682", "zwykly.user9@student.wat.edu.pl"), 52.261743, 20.905785));
+        lista.add(new PassengerModel(new UserJSONModel("5cf72e02bc1b9200176a3683", "zwykly.user10@student.wat.edu.pl"), 52.261270, 20.908714));
+        lista.add(new PassengerModel(new UserJSONModel("5cf72e06bc1b9200176a3684", "zwykly.user11@student.wat.edu.pl"), 52.249099, 20.907469));
+        lista.add(new PassengerModel(new UserJSONModel("5cf72e09bc1b9200176a3685", "zwykly.user12@student.wat.edu.pl"), 52.250156, 20.912576));
+        lista.add(new PassengerModel(new UserJSONModel("5cf72e0ebc1b9200176a3686", "zwykly.user13@student.wat.edu.pl"), 52.251831, 20.911235));
+        lista.add(new PassengerModel(new UserJSONModel("5cf72e11bc1b9200176a3687", "zwykly.user14@student.wat.edu.pl"), 52.249815, 20.908048));
+        lista.add(new PassengerModel(new UserJSONModel("5cf72e17bc1b9200176a3688", "zwykly.user15@student.wat.edu.pl"), 52.249204, 20.912190));
+        lista.add(new PassengerModel(new UserJSONModel("5cf72e1cbc1b9200176a3689", "zwykly.user16@student.wat.edu.pl"), 52.258632, 20.914691));
+        lista.add(new PassengerModel(new UserJSONModel("5cf72e20bc1b9200176a368a", "zwykly.user17@student.wat.edu.pl"), 52.254754, 20.911687));
+        lista.add(new PassengerModel(new UserJSONModel("5cf72e23bc1b9200176a368b", "zwykly.user18@student.wat.edu.pl"), 52.255082, 20.915657));
+        lista.add(new PassengerModel(new UserJSONModel("5cf72e27bc1b9200176a368c", "zwykly.user19@student.wat.edu.pl"), 52.254478, 20.917813));
+        lista.add(new PassengerModel(new UserJSONModel("5cf72e2dbc1b9200176a368d", "zwykly.user20@student.wat.edu.pl"), 52.252731, 20.915721));
+        lista.add(new PassengerModel(new UserJSONModel("5cf72e31bc1b9200176a368e", "zwykly.user21@student.wat.edu.pl"), 52.249388, 20.922259));
+        lista.add(new PassengerModel(new UserJSONModel("5cf72e35bc1b9200176a368f", "zwykly.user22@student.wat.edu.pl"), 52.249467, 20.923976));
+        lista.add(new PassengerModel(new UserJSONModel("5cf72e38bc1b9200176a3690", "zwykly.user23@student.wat.edu.pl"), 52.250459, 20.925387));
+        lista.add(new PassengerModel(new UserJSONModel("5cf72e3cbc1b9200176a3691", "zwykly.user24@student.wat.edu.pl"), 52.250850, 20.927329));
+        lista.add(new PassengerModel(new UserJSONModel("5cf72e3fbc1b9200176a3692", "zwykly.user25@student.wat.edu.pl"), 52.249730, 20.927200));
     }
 }
+
 //        { "id": "5cfba96fc5db3c001715eb82", "latitude": "52.2322678", "longitude": "20.9999925" },
 //        { "id": "5cf72e3fbc1b9200176a3692", "name": "zwykly.user25", "picture": "https://gravatar.com/avatar/c2acf58e9b066e2938e1571527f89204?d=identicon" },
 //        { "id": "5cf72e3cbc1b9200176a3691", "name": "zwykly.user24", "picture": "https://gravatar.com/avatar/c394630b1673118748fd164f9f042237?d=identicon" },
@@ -82,3 +83,6 @@ public class PassengerArray {
 //        { "id": "5cf72deabc1b9200176a367d", "name": "zwykly.user4", "picture": "https://gravatar.com/avatar/6b2a55c7f51d56855bd8eb9639336b7f?d=identicon" },
 //        { "id": "5cf72de4bc1b9200176a367c", "name": "zwykly.user3", "picture": "https://gravatar.com/avatar/7805fcec4f459b60268713e4db8cff10?d=identicon" },
 //        { "id": "5cf6fc0bf3c6ad0017898a49", "name": "zwykly.user2", "picture": "https://gravatar.com/avatar/21407e1c462e95f6b073fd22bdadffcd?d=identicon" }
+
+
+

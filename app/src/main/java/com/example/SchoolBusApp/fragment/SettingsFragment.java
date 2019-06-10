@@ -24,10 +24,6 @@ public class SettingsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
-        EditText firebaseToken = getActivity().findViewById(R.id.firebaseToken);
-        firebaseToken.setText("registrationId:\n" + sharedPreferences.getString("registrationID", null)+
-        "\n\nFCMtoken:\n"+ sharedPreferences.getString("FCMtoken", null));
 
     }
 }
