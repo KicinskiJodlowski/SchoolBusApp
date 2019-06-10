@@ -15,7 +15,7 @@ import retrofit2.Response;
 
 @Data
 public class PassengerArray {
-    private ArrayList<PassengerModel> lista;
+    private ArrayList<PassengerModel> lista = new ArrayList<>();
 
     public PassengerArray() {
 //        Call<ResponseBody> call = new RetrofitClient.getApi().getAllUsers(SharedPreferenceManager.read(SharedPreferenceManager.TOKEN, ""));

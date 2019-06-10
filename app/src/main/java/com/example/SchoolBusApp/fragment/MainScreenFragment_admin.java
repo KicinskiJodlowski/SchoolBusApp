@@ -86,7 +86,9 @@ public class MainScreenFragment_admin extends Fragment implements OnMapReadyCall
 
     private PassengerArray getAllPasengers() {
         PassengerArray lista = new PassengerArray();
-        showPassengers(lista.getLista());
+        ArrayList<PassengerModel> listaB = new ArrayList<>();
+        listaB = lista.getLista();
+        showPassengers(listaB);
         return lista;
     }
 
