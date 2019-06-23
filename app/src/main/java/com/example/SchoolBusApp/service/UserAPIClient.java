@@ -46,7 +46,7 @@ public interface UserAPIClient {
 
     @FormUrlEncoded
     @PUT("/users/{id}")
-    Call<ResponseBody> updateLocation(@Path("id") String id, @Field("access_token") String authKey, @Field("latitude") String latitude, @Field("longitude") String longitude);
+    Call<ResponseBody> updateLocation(@Path("id") String id, @Field("access_token") String authKey, @Field("name") String name, @Field("picture") String picture, @Field("latitude") String latitude, @Field("longitude") String longitude);
 
     @FormUrlEncoded
     @GET("/users")

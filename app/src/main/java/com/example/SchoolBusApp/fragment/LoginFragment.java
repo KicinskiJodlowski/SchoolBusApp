@@ -1,7 +1,6 @@
 package com.example.SchoolBusApp.fragment;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -14,7 +13,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.SchoolBusApp.R;
-import com.example.SchoolBusApp.RetrofitClient;
+import com.example.SchoolBusApp.RetrofitHerokuClient;
 import com.example.SchoolBusApp.SharedPreferenceManager;
 import com.example.SchoolBusApp.activity.MainActivity;
 import com.example.SchoolBusApp.model.UserJSONModel;
@@ -30,7 +29,6 @@ import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
 
 public class LoginFragment extends Fragment {
 
@@ -69,7 +67,7 @@ public class LoginFragment extends Fragment {
         SharedPreferenceManager.write(SharedPreferenceManager.Login, ((EditText) Objects.requireNonNull(getActivity()).findViewById(R.id.userNameText)).getText().toString());
         String email = ((EditText) Objects.requireNonNull(getActivity()).findViewById(R.id.userNameText)).getText().toString();
         String password = ((EditText) getActivity().findViewById(R.id.passwordText)).getText().toString();
-        Call<ResponseBody> call = RetrofitClient.getInstance().getApi().login(Credentials.basic(email, password), SharedPreferenceManager.read(SharedPreferenceManager.MASTER_KEY, ""));
+        Call<ResponseBody> call = RetrofitHerokuClient.getInstance().getApi().login(Credentials.basic(email, password), SharedPreferenceManager.read(SharedPreferenceManager.MASTER_KEY, ""));
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
@@ -91,7 +89,7 @@ public class LoginFragment extends Fragment {
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-                        Call<ResponseBody> call2 = RetrofitClient.getInstance().getApi().user_role_check(SharedPreferenceManager.read(SharedPreferenceManager.TOKEN, ""), "1");
+                        Call<ResponseBody> call2 = RetrofitHerokuClient.getInstance().getApi().user_role_check(SharedPreferenceManager.read(SharedPreferenceManager.TOKEN, ""), "1");
                         call2.enqueue(new Callback<ResponseBody>() {
                             @Override
                             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response2) {
@@ -133,7 +131,7 @@ public class LoginFragment extends Fragment {
 //        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(initialActivity.getApplicationContext());
 //        NotifyRegisterModel notifyRegisterModel = new NotifyRegisterModel(sharedPreferences.getString("FCMtoken", null));
 //
-//        Call<ResponseBody> call2 = RetrofitClient.getInstance().getApi().notifyRegister(sharedPreferences.getString("registrationID", ""),
+//        Call<ResponseBody> call2 = RetrofitHerokuClient.getInstance().getApi().notifyRegister(sharedPreferences.getString("registrationID", ""),
 //                SharedPreferenceManager.read(SharedPreferenceManager.TOKEN, ""), notifyRegisterModel);
 //        call2.enqueue(new Callback<ResponseBody>() {
 //            @Override

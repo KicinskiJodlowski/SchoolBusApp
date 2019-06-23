@@ -16,7 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.SchoolBusApp.R;
-import com.example.SchoolBusApp.RetrofitClient;
+import com.example.SchoolBusApp.RetrofitHerokuClient;
 import com.example.SchoolBusApp.SharedPreferenceManager;
 import com.example.SchoolBusApp.activity.MainActivity;
 import com.example.SchoolBusApp.model.UserJSONModel;
@@ -77,7 +77,7 @@ public class RegisterFragment extends Fragment {
 //                ((EditText) getActivity().findViewById(R.id.passwordText)).getText().toString(),
 //                ((EditText) getActivity().findViewById(R.id.fullNameText)).getText().toString(), "");
         final TextView errorText = getActivity().findViewById(R.id.errorText);
-        Call<ResponseBody> call = RetrofitClient.getInstance().getApi().register(SharedPreferenceManager.read(SharedPreferenceManager.MASTER_KEY, ""),
+        Call<ResponseBody> call = RetrofitHerokuClient.getInstance().getApi().register(SharedPreferenceManager.read(SharedPreferenceManager.MASTER_KEY, ""),
                 ((EditText) getActivity().findViewById(R.id.mailText)).getText().toString(), ((EditText) getActivity().findViewById(R.id.passwordText)).getText().toString());
         call.enqueue(new Callback<ResponseBody>() {
             @Override

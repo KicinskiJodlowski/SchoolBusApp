@@ -18,7 +18,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.SchoolBusApp.R;
-import com.example.SchoolBusApp.RetrofitClient;
+import com.example.SchoolBusApp.RetrofitHerokuClient;
 import com.example.SchoolBusApp.SharedPreferenceManager;
 import com.example.SchoolBusApp.model.UserJSONModel;
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -28,6 +28,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -75,17 +76,30 @@ public class MainScreenFragment_user extends Fragment implements OnMapReadyCallb
                 } else {
                     fusedLocationProviderClient.getLastLocation().addOnSuccessListener(getActivity(), new OnSuccessListener<Location>() {
                         @Override
-                        public void onSuccess(Location location) {
+                        public void onSuccess(final Location location) {
                             if (location != null) {
                                 try {
                                     String id = new UserJSONModel(new JSONObject(SharedPreferenceManager.read(SharedPreferenceManager.AUTH, "")).getJSONObject("user")).getId();
-                                    Call<ResponseBody> call = new RetrofitClient().getApi().updateLocation(id, SharedPreferenceManager.read(SharedPreferenceManager.TOKEN, ""),
+                                    String name = new UserJSONModel(new JSONObject(SharedPreferenceManager.read(SharedPreferenceManager.AUTH, "")).getJSONObject("user")).getName();
+                                    String picture = new UserJSONModel(new JSONObject(SharedPreferenceManager.read(SharedPreferenceManager.AUTH, "")).getJSONObject("user")).getPicture();
+                                    Call<ResponseBody> call = new RetrofitHerokuClient().getApi().updateLocation(id, SharedPreferenceManager.read(SharedPreferenceManager.TOKEN, ""),name,picture,
                                             Double.toString(location.getLatitude()), Double.toString(location.getLongitude()));
                                     call.enqueue(new Callback<ResponseBody>() {
                                         @Override
                                         public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                                            if (response.code()==200) submitGPSBtn.setEnabled(false); submitGPSBtn.setText("Lokalizacja zapisana");
+                                            if (response.code() == 200) {
+                                                submitGPSBtn.setEnabled(false);
+                                                submitGPSBtn.setText("Lokalizacja zapisana");
+                                                LatLng myLocation = new LatLng(location.getLatitude(), location.getLongitude());
+                                                map.addMarker(new MarkerOptions().position(myLocation)
+                                                        .title("Lokalizacja umieszczona w bazie danych"));
+                                                map.moveCamera(CameraUpdateFactory.newLatLng(myLocation));
+
+//                                                Toast.makeText(getActivity(), "kod 200", Toast.LENGTH_SHORT).show();
+                                            }
+//                                            Toast.makeText(getActivity(), "kod inny niz 200", Toast.LENGTH_SHORT).show();
                                         }
+
                                         @Override
                                         public void onFailure(Call<ResponseBody> call, Throwable t) {
                                         }

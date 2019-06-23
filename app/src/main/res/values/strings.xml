@@ -6,5 +6,7 @@
     <string name="master_token">mtlNzTVmXP4IBSba3z4XgcpxibboPvaF</string>
 
     <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyDmRm-T24g_CWUQRBLRu9Cbfvgn8TNlzYU</string>
+    <string name="google_maps_direction_key" templateMergeStrategy="preserve" translatable="false">AIzaSyB9amic4Y2tuNHTj9Mqsb2Ik3PgMsxEh7k</string>
+
 
 </resources>

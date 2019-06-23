@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.logOut_event:
 //                SharedPreferences sharedPreferences;
 //                sharedPreferences = PreferenceManager.getDefaultSharedPreferences(initialActivity.getApplicationContext());
-//                Call<ResponseBody> logout = new RetrofitClient().getApi().notifyUnregister(sharedPreferences.getString("registrationID", ""),
+//                Call<ResponseBody> logout = new RetrofitHerokuClient().getApi().notifyUnregister(sharedPreferences.getString("registrationID", ""),
 //                        SharedPreferenceManager.read(SharedPreferenceManager.TOKEN, ""));
 //                logout.enqueue(new Callback<ResponseBody>() {
 //                    @Override
